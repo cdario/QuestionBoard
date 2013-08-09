@@ -1,0 +1,39 @@
+<head>
+  <title>question board</title>
+</head>
+
+<body>
+{{loginButtons}}
+<div class="container-fluid">
+  {{> questions}} 
+</div>
+</body>
+
+
+<template name="questions">
+
+{{#if userId}}
+<h1>Ask a Question</h1>
+<form class="form-compact">
+  <input type="text" id="questionText"></input>
+  <input type="button" id="questionAsk" class="btn" value="ask me"></input> 
+</form>
+{{/if}}
+
+<br>
+
+{{#each allQuestions}}
+  <h3>
+   {{idx}}
+   {{question}}
+   [ {{score}} ]
+ {{#if showArrow}}
+    <a class = "vote"> &uarr; </a>
+ {{/if}}
+  </h3>
+<p> {{email}} </p>
+
+{{/each}}
+</template> 
+
+
